@@ -10,13 +10,13 @@
 	// Adding a title to be displayed in the UI
  	// and limiting the type of data to Numbers only
 	var x = model.dimension() 
-		.title('X Axis')
+		.title('Axe des X')
 		.types(Number)
 
 	// Y axis dimension
 	// Same as X
 	var y = model.dimension() 
-		.title('Y Axis')
+		.title('Axe des Y')
 		.types(Number)
 
 	// Mapping function
@@ -35,8 +35,8 @@
 	// The Chart
 
 	var chart = raw.chart()
-		.title("Simple Scatter Plot")
-		.description("A simple chart for test")
+		.title("Simple diagramme de dispersion")
+		.description("Un simple diagramme de dispersion pour tester")
 		.model(model)
 
 	// Some options we want to expose to the users
@@ -47,17 +47,17 @@
 
 	// Width
 	var width = chart.number()
-		.title('Width')
+		.title('Largeur')
 		.defaultValue(900)
 
 	// Height
 	var height = chart.number()
-		.title('Height')
+		.title('Hauteur')
 		.defaultValue(600)
 
 	// A simple margin
 	var margin = chart.number()
-		.title('margin')
+		.title('Marge')
 		.defaultValue(10)
 
 	// Drawing function

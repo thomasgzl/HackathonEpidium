@@ -6,12 +6,12 @@
     // chart. If multiple lines share the same value in the
     // group dimension, they will be grouped.
     var group = model.dimension()
-        .title('Label');
+        .title('Etiquette');
 
     // 'Dimensions' dimension. accept multiple values.
     // Each value represent a slice of the pie.
     var dimensions = model.dimension()
-        .title('Arcs')
+        .title('Cercles')
         .types(Number)
         .required(true)
         .multiple(true);
@@ -52,49 +52,49 @@
     // The chart object
 
     var chart = raw.chart()
-        .title("Pie chart")
-        .description("A pie chart (or a circle chart) is a circular statistical graphic which is divided into slices to illustrate numerical proportion.")
+        .title("Diagramme circulaire")
+        .description("Un diagramme circulaire est divisé en tranches afin d'illustrer des proportions numériques.")
         .thumbnail("imgs/pieChart.png")
-        .category('Other')
+        .category('Autre')
         .model(model);
 
     var width = chart.number()
-        .title('Width')
+        .title('Largeur')
         .defaultValue(800)
 
     var columns = chart.number()
-        .title('Columns')
+        .title('Colonnes')
         .defaultValue(4)
 
     var padding = chart.number()
-        .title('Padding')
+        .title('Espacement')
         .defaultValue(10)
 
     var donut = chart.checkbox()
-        .title('Donut chart')
+        .title('Graphique en anneaux')
         .defaultValue(false)
 
     var thickness = chart.number()
-        .title('Thickness')
+        .title('Epaisseur')
         .defaultValue(10)
 
     var showValues = chart.checkbox()
-        .title('Show values')
+        .title('Montrer les valeurs')
         .defaultValue(false)
 
     var sortChartsBy = chart.list()
-        .title("Sort charts by")
-        .values(['size', 'name'])
-        .defaultValue('size')
+        .title("Ordonner les graphiques par")
+        .values(['taille', 'nom'])
+        .defaultValue('taille')
 
     var sortArcsBy = chart.list()
-        .title("Sort arcs by")
-        .values(['size', 'name'])
-        .defaultValue('size')
+        .title("Ordonner les cercles par")
+        .values(['taille', 'nom'])
+        .defaultValue('taille')
 
     // Chart colors
     var colors = chart.color()
-        .title("Color scale")
+        .title("Echelle de couleur")
 
     // Drawing function.
 
@@ -190,7 +190,7 @@
 
 
         function sortChartsByComparator(a, b) {
-            if (sortChartsBy() == 'size') {
+            if (sortChartsBy() == 'taille') {
                 return d3.descending(d3.sum(a.value, function(d) {
                         return d.size;
                     }),
@@ -198,13 +198,13 @@
                         return d.size;
                     }));
             }
-            if (sortChartsBy() == 'name') return d3.ascending(a.key, b.key);
+            if (sortChartsBy() == 'nom') return d3.ascending(a.key, b.key);
 
         }
 
         function sortArcsByComparator(a, b) {
-            if (sortArcsBy() == 'size') return d3.descending(a.size, b.size);
-            if (sortArcsBy() == 'name') return d3.ascending(a.key, b.key);
+            if (sortArcsBy() == 'taille') return d3.descending(a.size, b.size);
+            if (sortArcsBy() == 'nom') return d3.ascending(a.key, b.key);
         }
 
 
