@@ -61,8 +61,8 @@
 
 						<!-- Clipboard -->
 						<div ng-show="importMode=='clipboard' && !json && !parsed">
-							<textarea ui-codemirror="{lineWrapping : true,   dragDrop : false}" class="text-clipboard margin-bottom" ng-model="clipboardText" placeholder="Paste your data here from other applications"></textarea>
-							<p class="help-block">Copiez et collez vos données en provenance d'autre site ou applications. Vous pouvez utiliser vos données tabulaires (TSV, CSV, DSV) ou JSON.<p>
+							<textarea ui-codemirror="{lineWrapping : true,   dragDrop : false}" class="text-clipboard margin-bottom" ng-model="clipboardText" placeholder="Veuillez coller ici vos données"></textarea>
+							<p class="help-block">Copiez et collez vos données en provenance d'autres sites ou applications. Vous pouvez utiliser vos données tabulaires (TSV, CSV, DSV) ou JSON.<p>
 
 						</div>
 
@@ -145,9 +145,9 @@
 						</div>
 
 						<div>
-							<div data-ng-show="!loading && !error && data.length && parsed" class="alert alert-success"><i class="fa fa-thumbs-up breath-right"></i><strong>{{data.length}}</strong> entrées de vos données ont été décriptées!</div>
+							<div data-ng-show="!loading && !error && data.length && parsed" class="alert alert-success"><i class="fa fa-thumbs-up breath-right"></i><strong>{{data.length}}</strong> entrées ont été décriptées!</div>
 							<div data-ng-show="!loading && error" class="alert alert-warning"><i class="fa fa-thumbs-down breath-right"></i><strong>Oups! </strong>{{error}}</div>
-							<div data-ng-show="loading && text.length" class="alert alert-loading"><i class="fa breath-right fa-refresh fa-spin"></i>Chargement de vos données. Veuillez patiente.</div>
+							<div data-ng-show="loading && text.length" class="alert alert-loading"><i class="fa breath-right fa-refresh fa-spin"></i>Chargement de vos données. Veuillez patienter.</div>
 						</div>
 
 						<div ng-show="parsed">
@@ -155,7 +155,7 @@
 							<div class="pull-right">
 
 								<p ng-show="pivot<=0 && !unstacked">Vos données ne semblent pas empilées. <a ng-click="unstacking=true">Cliquez ici pour les empiler</a></p>
-								<p class="text-muted" ng-show="pivot>0 && !unstacked">Vos données semblent bien empilées. <a ng-click="unstacking=true">Cliquez ici</a></p> si vous voulez les empiler à nouveau.
+								<p class="text-muted" ng-show="pivot>0 && !unstacked">Vos données semblent bien empilées. <a ng-click="unstacking=true">Cliquez ici</a> si vous voulez les empiler à nouveau</p>.
 								<p ng-show="unstacked">Vos données sont empilées. <a ng-click="stack()">Veuillez cliquer ici pour retourner aux données originelles</a></p>
 								<div ng-show="unstacking" class="pull-right">
 									<button
@@ -192,7 +192,7 @@
 		<section data-ng-show="error">
 
 			<div class="container">
-				<h2><strong>Ouch.</strong> Il semble qu'il y ait des problèmes dans la décryptation de vos données. Veuillez vérifier que vos données sont bien formatées. Il se peut qu'il manque des délimiteurs. Vous pouvez consulter nos <a href="https://github.com/densitydesign/raw/wiki/FAQs#raw-says-there-is-something-wrong-with-my-data">FAQs</a> pour plus d'information.</h2>
+				<h2><strong>Ouch.</strong> Il semble qu'il y ait des problèmes dans la décryptation de vos données. Veuillez vérifier que vos données sont bien formatées. Il se peut qu'il manque des délimiteurs. Vous pouvez consulter nos <a href="https://github.com/densitydesign/raw/wiki/FAQs#raw-says-there-is-something-wrong-with-my-data">FAQs</a> pour plus d'informations.</h2>
 			</div>
 
 		</section>
@@ -457,10 +457,10 @@
 				</div>
 
 				<div class="col-lg-9">
-					<h3 ng-show="!chart.isDrawing()" id="data"><i class="fa fa-code breath-right"></i>Embed SVG Code</h3>
-					<h3 ng-show="chart.isDrawing()">loading <span class="glyphicon glyphicon-refresh spinning"></span></h3>
+					<h3 ng-show="!chart.isDrawing()" id="data"><i class="fa fa-code breath-right"></i>Inclure le Code SVG</h3>
+					<h3 ng-show="chart.isDrawing()">En train de charger <span class="glyphicon glyphicon-refresh spinning"></span></h3>
 					<coder ng-show="!chart.isDrawing()"></coder>
-					<p ng-show="!chart.isDrawing()" class="light">Copy the snippet above into your HTML code to embed the visualization
+					<p ng-show="!chart.isDrawing()" class="light">Veuillez copier le snippet ci-dessus pour l'inclure dans votre code HTML
 						<a class="pull-right" id="copy-button" copy-button data-clipboard-target="source" data-container="body"><i class="fa fa-clipboard"></i></a>
 					</p>
 				</div>
