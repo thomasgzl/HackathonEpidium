@@ -216,7 +216,7 @@ angular.module('raw.directives', [])
 	        scope.scales = [
 
 	        	{
-	        		type : 'Ordinal (categories)',
+	        		type : 'Ordinal (catégories)',
 	        		value : d3.scaleOrdinal().range(raw.divergingRange(1)),
 	        		reset : function(domain) { this.value.range(raw.divergingRange(domain.length || 1)); },
 	        		update : ordinalUpdate
@@ -246,7 +246,7 @@ angular.module('raw.directives', [])
 	        		update : ordinalUpdate
 	        	},*/
 	        	{
-	        		type : 'Linear (numeric)',
+	        		type : 'Linéaire (numérique)',
 	        		value : d3.scaleLinear().range(["#f7fbff", "#08306b"]),
 	        		reset : function(){ this.value.range(["#f7fbff", "#08306b"]); },
 	        		update : linearUpdate
@@ -444,8 +444,8 @@ angular.module('raw.directives', [])
 				function message(){
 					var hasInvalidType = values().filter(d => { return !isValidType(d); }).length > 0;
 					scope.messageText = hasInvalidType
-						? "You should only use " + scope.types.map(d => { return d.name.toLowerCase() + "s"; }).join(" or ") + " here"
-						: "Drag " + scope.types.map(d => { return d.name.toLowerCase() + "s"; }).join(", ") + " here";
+						? "Vous devriez uniquement utiliser " + scope.types.map(d => { return d.name.toLowerCase() + "s"; }).join(" ou ") + " here"
+						: "Relâcher les " + scope.types.map(d => { return d.name.toLowerCase() + "s"; }).join(", ") + " ici";
 					//element.parent().find('.msg').html(messageText);
 				}
 
@@ -515,7 +515,7 @@ angular.module('raw.directives', [])
     		d3.select(element[0]).selectAll("*").remove();
 
     		if(!scope.data|| !scope.data.length) {
-    			d3.select(element[0]).append("span").text("Please, review your data")
+    			d3.select(element[0]).append("span").text("Veuillez revoir vos données")
     			return;
     		}
 
@@ -636,11 +636,11 @@ angular.module('raw.directives', [])
       replace:true,
       template :  '<div class="row">' +
                     '<form class="form-search col-lg-12">' +
-                      '<button bs-select class="btn btn-default" placeholder="Choose type" ng-model="mode" bs-options="m.label for m in modes">' +
-                      'Select <span class="caret"></span>' +
+                      '<button bs-select class="btn btn-default" placeholder="Choisir le type" ng-model="mode" bs-options="m.label for m in modes">' +
+                      'Sélectionner <span class="caret"></span>' +
                       '</button>' +
-                      '<input class="form-control col-lg-12" placeholder="Filename" type="text" ng-model="filename">' +
-                      '<button class="btn btn-success form-control" ng-class="{disabled:!mode.label}" ng-click="mode.download()">Download</button>' +
+                      '<input class="form-control col-lg-12" placeholder="Nom du fichier" type="text" ng-model="filename">' +
+                      '<button class="btn btn-success form-control" ng-class="{disabled:!mode.label}" ng-click="mode.download()">Télécharger</button>' +
                     '</form>' +
                   '</div>',
 
@@ -734,9 +734,9 @@ angular.module('raw.directives', [])
       }
 
       scope.modes = [
-    		{ label : 'Vector graphics (svg)', download : downloadSvg },
+    		{ label : 'Graphique Vectorielle (svg)', download : downloadSvg },
     		{ label : 'Image (png)', download : downloadPng },
-    		{ label : 'Data model (json)', download : downloadData }
+    		{ label : 'Modèle de donnée (json)', download : downloadData }
     	]
     	//scope.mode = scope.modes[0]
 

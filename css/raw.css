@@ -2,7 +2,7 @@ html,
 body {
   height: 100%;
   background: url(https://www.augment.com/wp-content/uploads/2016/05/White-Background-9B1.jpg);
-  font-family: 'karla', Helvetica, Arial, sans-serif;
+  font-family: 'Titillium Web', sans-serif;
   font-size: 14px;
 }
 .logonav {
@@ -169,7 +169,7 @@ section.dark {
 }
 
 .navbar:hover {
-  background-color: #fffffff1;
+  background-color:#F5F5F5;
   transition: 1s;
 }
 
@@ -200,6 +200,14 @@ section.dark {
 
 
 
+.navbar .nav>li>a:focus,
+.navbar .nav>li>a:hover,
+.navbar .nav>.active>a,
+.navbar .nav>.active>a:hover,
+.navbar .nav>.active>a:focus {
+  background-color: transparent;
+  color: #000;
+}
 
 .navbar-inverse .navbar-collapse, .navbar-inverse .navbar-form {
   border-color: transparent;
