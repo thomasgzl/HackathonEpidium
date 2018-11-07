@@ -5,8 +5,8 @@
 		<div class="container">
 			<div class="row">
 				<div class="col">
-					<h1>Fichier à Télécharger</h1>
-					<h3>Veuillez télécharger vos fichiers pour les décrire sous forme de graphique. Vos données prendront une forme plus vivante, plus explicite. Vous pouvez importer vos données, coller vos fichiers, prendre une URL pour la traduire.</h3>
+					<h1>Fichiers à Télécharger</h1>
+					<h3>Veuillez télécharger vos fichiers pour les décrire sous forme de graphique. Vos données prendront une forme plus vivante, plus explicite. Vous pouvez importer vos données, coller vos fichiers, prendre une URL pour la traduire ou encore tester nos graphiques avec des exemples de données.</h3>
 				</div>
 			</div>
 			<div class="row">
@@ -162,7 +162,7 @@
 										class="btn btn-default"
 										ng-model="stackDimension"
 										ng-change="unstack();unstacking=false"
-										placeholder="Select a dimension to stack on"
+										placeholder="Selectionnez un classement"
 										bs-options="dimension.key for dimension in metadata" bs-select>
 									</button>
 								</div>
@@ -457,10 +457,10 @@
 				</div>
 
 				<div class="col-lg-9">
-					<h3 ng-show="!chart.isDrawing()" id="data"><i class="fa fa-code breath-right"></i>Inclure le Code SVG</h3>
+					<h3 ng-show="!chart.isDrawing()" id="data"><i class="fa fa-code breath-right"></i>Inclure le code contenant le rendu graphique</h3>
 					<h3 ng-show="chart.isDrawing()">En train de charger <span class="glyphicon glyphicon-refresh spinning"></span></h3>
 					<coder ng-show="!chart.isDrawing()"></coder>
-					<p ng-show="!chart.isDrawing()" class="light">Veuillez copier le snippet ci-dessus pour l'inclure dans votre code HTML
+					<p ng-show="!chart.isDrawing()" class="light">Veuillez copier le code ci-dessus pour l'inclure dans votre code HTML
 						<a class="pull-right" id="copy-button" copy-button data-clipboard-target="source" data-container="body"><i class="fa fa-clipboard"></i></a>
 					</p>
 				</div>

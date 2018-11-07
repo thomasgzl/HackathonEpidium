@@ -53,7 +53,7 @@
 
     var chart = raw.chart()
         .title("Diagramme circulaire")
-        .description("Un diagramme circulaire est divisé en tranches afin d'illustrer des proportions numériques.")
+        .description("Un diagramme circulaire est divisé en tranches afin d'illustrer des proportions numériques. Il permet de représenter un petit nombre de valeur ar des angles proportionnels à ces valeurs. Diagrammes très utilisés en statistique.")
         .thumbnail("imgs/pieChart.png")
         .category('Autre')
         .model(model);
@@ -93,8 +93,7 @@
         .defaultValue('taille')
 
     // Chart colors
-    var colors = chart.color()
-        .title("Echelle de couleur")
+    
 
     // Drawing function.
 

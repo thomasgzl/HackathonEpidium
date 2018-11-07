@@ -70,8 +70,8 @@
     // The Chart
 
     var chart = raw.chart()
-        .title("Graphique à barres")
-        .description("Un Graphique à barres présente des données groupées en barres rectangulaires ayant une hauteur proportionnelle aux valeurs représentées.</br> Graphique basé sur <a href='https://bl.ocks.org/mbostock/3310560'>https://bl.ocks.org/mbostock/3310560</a>")
+        .title("Histogrammes")
+        .description("Ce graphique preprésente des données numériques sur des barres rectangulaires. La hauteur de la barre est proportionnel à la valeur des données. Methode graphique principalement utilisée pour décrire 2 valeurs ")
         .thumbnail("imgs/barChart.png")
         .category('Autre')
         .model(model)
