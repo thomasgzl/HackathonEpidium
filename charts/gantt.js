@@ -5,11 +5,11 @@
 
     // Groups. It defines how to aggregate thte data
     var group = timechuncks.dimension('groups')
-        .title('Groups')
+        .title('Groupes')
 
     // Start Date. It will define the starting point of each bar
     var startDate = timechuncks.dimension('startDate')
-        .title('Start date')
+        .title('Date initiale')
         .types(Date)
         .accessor(function(d) {
             return this.type() == "Date" ? Date.parse(d) : +d;
@@ -18,7 +18,7 @@
 
     // End Date. It will define the ending point of each bar
     var endDate = timechuncks.dimension('endDate')
-        .title('End date')
+        .title('Date de fin')
         .types(Date)
         .accessor(function(d) {
             return this.type() == "Date" ? Date.parse(d) : +d;
@@ -27,7 +27,7 @@
 
     // Colors. it defines the color of each bar.
     var colorDimension = timechuncks.dimension('color')
-        .title('Colors')
+        .title('Couleurs')
         .types(String)
 
     // Mapping function
@@ -84,43 +84,43 @@
 
     // The Chart
     var chart = raw.chart()
-        .title('Gantt Chart')
+        .title('Diagramme de Gantt')
         .thumbnail("imgs/gantt.png")
-        .description("A Gantt chart is a type of bar chart, developed by Henry Gantt in the 1910s, that illustrates a project schedule. Gantt charts illustrate the start and finish dates of the terminal elements and summary elements of a project.")
-        .category('Time chunks')
+        .description("Un diagramme de Gantt est un type de graphique à barres développé par Henry Gantt dans les années 1910, qui illustre le planning détaillé d'un projet. Un diagramme de Gantt illustre les dates de début et fin de tous les éléments d'un projet.")
+        .category('Graphique temporel')
         .model(timechuncks)
 
     // OPTIONS
 
     // Width
     var width = chart.number()
-        .title('Width')
+        .title('Largeur')
         .defaultValue(900)
 
     // Height
     var height = chart.number()
-        .title('Height')
+        .title('Hauteur')
         .defaultValue(600)
 
     //left margin
     var marginLeft = chart.number()
-        .title('Left Margin')
+        .title('Marge à gauche')
         .defaultValue(80)
 
     //labels horizontal alignment
     var alignment = chart.checkbox()
-        .title("Align labels to bar")
+        .title("Aligner les étiquettes à la barre")
         .defaultValue(false);
 
     // sorting options
     var sort = chart.list()
-        .title("Sort by")
-        .values(['Start date (ascending)', 'Start date (descending)', 'Name'])
-        .defaultValue('Start date (ascending)')
+        .title("Ordonner par")
+        .values(['Date initiale (croissant)', 'Date initiale (décroissant)', 'Nom'])
+        .defaultValue('Date initiale (croissant)')
 
     // Colors for the chart
     var colors = chart.color()
-        .title("Color scale")
+        .title("Echelle de couleur")
 
     // Drawing function
     chart.draw(function(selection, data) {
@@ -262,11 +262,11 @@
 
     //sorting functions
     function sortBy(a, b) {
-        if (sort() == 'Start date (descending)') return d3.descending(a.value[0][0].start, b.value[0][0].start)
-        if (sort() == 'Start date (ascending)') return d3.ascending(a.value[0][0].start, b.value[0][0].start)
+        if (sort() == 'Date initiale (décroissant)') return d3.descending(a.value[0][0].start, b.value[0][0].start)
+        if (sort() == 'Date initiale (croissant)') return d3.ascending(a.value[0][0].start, b.value[0][0].start)
         // if (sort() == 'End date (descending)') return d3.descending(a.value[0][0].end, b.value[0][0].end)
         // if (sort() == 'End date (ascending)') return d3.ascending(a.value[0][0].end, b.value[0][0].end)
-        if (sort() == 'Name') return d3.ascending(a.key, b.key)
+        if (sort() == 'Nom') return d3.ascending(a.key, b.key)
     }
 
 })();

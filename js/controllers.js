@@ -180,7 +180,7 @@ angular.module('raw.controllers', [])
           },
           response => {
             $scope.loading = false;
-            $scope.error = "Something wrong with the URL you provided. Please be sure it is the correct address.";
+            $scope.error = "Il y a une erreur avec l'URL fourni. Veuillez vérifier que l'URL soit correct.";
           }
         )
 
@@ -190,16 +190,17 @@ angular.module('raw.controllers', [])
 
 
     $scope.samples = [
-      { title : 'Biggest cities per continent', type : 'Distributions', url : 'data/cities.csv'},
-      { title : 'Countries GDP', type : 'Other', url : 'data/countriesGDP.csv'},
-      { title : 'Cars', type : 'Multivariate', url : 'data/multivariate.csv' },
-      { title : 'Movies', type : 'Dispersions', url : 'data/dispersions.csv' },
-      { title : 'Music industry', type: 'Time Series', url : 'data/music.csv' },
-      { title : 'Lineup', type : 'Time chunks', url : 'data/lineup.tsv' },
-      { title : 'Orchestras', type : 'Hierarchies (weighted)', url : 'data/orchestra.csv' },
-      { title : 'Animal kingdom', type: 'Hierarchies', url : 'data/animals.tsv' },
-      { title : 'Titanic\'s passengers', type : 'Multi categorical', url : 'data/titanic.tsv' },
-      { title : 'Most frequent letters', type: 'Matrix (narrow)', url:'data/letters.tsv'}
+      { title : 'Types d\'indicateurs FAO', type : 'Autre', url : 'data/Faostat_Indicators.csv'},
+      { title : 'Plus grandes villes par continent', type : 'Distributions', url : 'data/cities.csv'},
+      { title : 'Pays par PIB', type : 'Autre', url : 'data/countriesGDP.csv'},
+      { title : 'Voitures', type : 'Multivarié', url : 'data/multivariate.csv' },
+      { title : 'Films', type : 'Dispersions', url : 'data/dispersions.csv' },
+      { title : 'Indutrie Musicale', type: 'Séries Temporelles', url : 'data/music.csv' },
+      { title : 'Alignement', type : 'Graphique temporel', url : 'data/lineup.tsv' },
+      { title : 'Orchestres', type : 'Hiérarchies (coefficient)', url : 'data/orchestra.csv' },
+      { title : 'Royaume Animal', type: 'Hiérarchies', url : 'data/animals.tsv' },
+      { title : 'Passengers du Titanic', type : 'Multi catégories', url : 'data/titanic.tsv' },
+      { title : 'Lettres les plus fréquentes', type: 'Matrice', url:'data/letters.tsv'}
     ]
 
     $scope.selectSample = sample => {
@@ -240,14 +241,14 @@ angular.module('raw.controllers', [])
 
     $scope.importMode = 'clipboard';
 
-    $scope.categories = ['Hierarchies', 'Time Series', 'Distributions', 'Correlations', 'Others'];
+    $scope.categories = ['Hiérarchies', 'Séries Temporelles', 'Distributions', 'Corrélations', 'Autres'];
 
     $scope.bgColors = {
-      'Hierarchies': '#0f0',
-      'Time Series': 'rgb(255, 185, 5)',
+      'Hiérarchies': '#0f0',
+      'Séries Temporelles': 'rgb(255, 185, 5)',
       'Distributions': 'rgb(5, 205, 255)',
-      'Correlations': '#df0',
-      'Others': '#0f0'
+      'Corrélations': '#df0',
+      'Autres': '#0f0'
     }
 
 
@@ -391,7 +392,7 @@ angular.module('raw.controllers', [])
 
         $timeout(function() {
           $scope.charts = raw.charts.values().sort(function (a,b){ return d3.ascending(a.category(),b.category()) || d3.ascending(a.title(),b.title()) })
-          $scope.chart = $scope.charts.filter(d => {return d.title() == 'Scatter Plot'})[0];
+          $scope.chart = $scope.charts.filter(d => {return d.title() == 'Diagramme de dispersion'})[0];
           $scope.model = $scope.chart ? $scope.chart.model() : null;
         });
       } catch(e){

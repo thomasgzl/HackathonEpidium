@@ -3,37 +3,37 @@
     var graph = raw.models.graph();
 
     var chart = raw.chart()
-        .title('Alluvial Diagram')
+        .title('Diagramme de Sankey')
         .description(
-            "Alluvial diagrams allow to represent flows and to see correlations between categorical dimensions, visually linking to the number of elements sharing the same categories. It is useful to see the evolution of cluster (such as the number of people belonging to a specific group). It can also be used to represent bipartite graphs, using each node group as dimensions.<br/>Mainly based on DensityDesign's work with Fineo, it is inspired by <a href='https://bl.ocks.org/mbostock/ca9a0bb7ba204d12974bca90acc507c0'>https://bl.ocks.org/mbostock/ca9a0bb7ba204d12974bca90acc507c0</a>")
+            "Le diagramme de Sankey permet de représenter les flux et de voir les corrélations entre les dimensions catégorielles, en se liant visuellement au nombre d'éléments partageant les mêmes catégories. Il permet de voir l'évolution du cluster et peut être utilisé pour représenter des graphes bipartites, en utilisant chaque groupe de nœuds comme dimension. Principalement basé sur le travail de DensityDesign avec Fineo, il s’inspire de <a href='https://bl.ocks.org/mbostock/ca9a0bb7ba204d12974bca90acc507c0'>https://bl.ocks.org/mbostock/ca9a0bb7ba204d12974bca90acc507c0</a>")
         .thumbnail("imgs/alluvial.png")
-        .category("Multi categorical")
+        .category("Multi catégorie")
         .model(graph);
 
     var width = chart.number()
-        .title("Width")
+        .title("Largeur")
         .defaultValue(1000)
         .fitToWidth(true);
 
     var height = chart.number()
-        .title("Height")
+        .title("Hauteur")
         .defaultValue(500);
 
     var nodeWidth = chart.number()
-        .title("Node Width")
+        .title("Largeur du nœud")
         .defaultValue(5);
 
     var opacity = chart.number()
-        .title("Links opacity")
+        .title("Opacité des liens")
         .defaultValue(.4);
 
     var sortBy = chart.list()
-        .title("Sort by")
-        .values(['size', 'name', 'automatic'])
-        .defaultValue('size');
+        .title("Ordonner par")
+        .values(['taille', 'nom', 'automatique'])
+        .defaultValue('taille');
 
     var colors = chart.color()
-        .title("Color scale");
+        .title("Echelle de couleurs");
 
     chart.draw((selection, data) => {
 
@@ -106,10 +106,10 @@
                 })) / 2 + sankey.nodePadding() / 2;
 
                 d.values.sort(function(a, b) {
-                    if (sortBy() == "automatic") return b.y0 - a.y0;
-                    if (sortBy() == "size") return b.dy - a.dy;
+                    if (sortBy() == "automatique") return b.y0 - a.y0;
+                    if (sortBy() == "taille") return b.dy - a.dy;
                     //if (sortBy() == "name") return a.name < b.name ? -1 : a.name > b.name ? 1 : 0;
-                    if (sortBy() == "name") {
+                    if (sortBy() == "nom") {
                         var a1 = typeof a.name,
                             b1 = typeof b.name;
                         return a1 < b1 ? -1 : a1 > b1 ? 1 : a.name < b.name ? -1 : a.name > b.name ? 1 : 0;
