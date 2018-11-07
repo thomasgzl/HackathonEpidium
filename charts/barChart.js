@@ -12,24 +12,24 @@
     // Categories dimension. each category will define a bar
     // It can accept both numbers and strings
     var categories = model.dimension()
-        .title('X Axis')
+        .title('Axe des X')
         .types(Number, String)
         .required(true)
     // Values dimension. It will define the height of the bars
     var sizes = model.dimension()
-        .title('Height')
+        .title('Hauteur')
         .types(Number)
 
     // Group dimension.
     // It can accept both numbers and strings
     var groups = model.dimension()
-        .title('Groups')
+        .title('Groupes')
         .types(Number, String)
 
 
     // Colors dimension. It will define the color of the bars
     var colorsDimesion = model.dimension()
-        .title('Colors')
+        .title('Couleurs')
         .types(String)
 
     // Mapping function
@@ -70,46 +70,46 @@
     // The Chart
 
     var chart = raw.chart()
-        .title("Bar chart")
-        .description("A bar chart or bar graph is a chart or graph that presents grouped data with rectangular bars with heights proportional to the values that they represent.</br> Chart based on <a href='https://bl.ocks.org/mbostock/3310560'>https://bl.ocks.org/mbostock/3310560</a>")
+        .title("Graphique à barres")
+        .description("Un Graphique à barres présente des données groupées en barres rectangulaires ayant une hauteur proportionnelle aux valeurs représentées.</br> Graphique basé sur <a href='https://bl.ocks.org/mbostock/3310560'>https://bl.ocks.org/mbostock/3310560</a>")
         .thumbnail("imgs/barChart.png")
-        .category('Other')
+        .category('Autre')
         .model(model)
 
     // visualiziation options
     // Width
     var width = chart.number()
-        .title('Width')
+        .title('Largeur')
         .defaultValue(800)
 
     // Height
     var height = chart.number()
-        .title('Height')
+        .title('Hauteur')
         .defaultValue(600)
 
     //left margin
     var marginLeft = chart.number()
-        .title('Left Margin')
+        .title('Marge à gauche')
         .defaultValue(40)
 
     // Space between barcharts
     var padding = chart.number()
-        .title('Vertical padding')
+        .title('Espacement Vertical')
         .defaultValue(0);
 
     // Padding between bars
     var xPadding = chart.number()
-        .title('Horizontal padding')
+        .title('Espacement Horizontal')
         .defaultValue(0.1);
 
     // Use or not the same scale across all the bar charts
     var sameScale = chart.checkbox()
-        .title("Use same scale")
+        .title("Utilise la meme échelle")
         .defaultValue(false)
 
     // Chart colors
     var colors = chart.color()
-        .title("Color scale")
+        .title("Echelle de couleur")
 
     // Drawing function
     // selection represents the d3 selection (svg)
