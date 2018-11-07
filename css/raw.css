@@ -5,9 +5,8 @@ body {
   font-family: 'Titillium Web', sans-serif;
   font-size: 14px;
 }
-
 .logonav {
-  width: 
+  width: 180px;
 }
 
 h2 {
@@ -170,7 +169,7 @@ section.dark {
 }
 
 .navbar:hover {
-  background-color: #fff;
+  background-color:#F5F5F5;
   transition: 1s;
 }
 
