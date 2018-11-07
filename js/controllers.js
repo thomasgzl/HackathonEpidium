@@ -190,6 +190,7 @@ angular.module('raw.controllers', [])
 
 
     $scope.samples = [
+      { title : 'Types d\'indicateurs FAO', type : 'Autre', url : 'data/Faostat_Indicators.csv'},
       { title : 'Plus grandes villes par continent', type : 'Distributions', url : 'data/cities.csv'},
       { title : 'Pays par PIB', type : 'Autre', url : 'data/countriesGDP.csv'},
       { title : 'Voitures', type : 'Multivarié', url : 'data/multivariate.csv' },
